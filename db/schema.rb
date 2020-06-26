@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_130959) do
+ActiveRecord::Schema.define(version: 2020_06_26_180513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "pickup_address"
+    t.string "dropoff_address"
+    t.decimal "pickup_lat"
+    t.decimal "pickup_long"
+    t.decimal "dropoff_lat"
+    t.decimal "dropoff_long"
+    t.bigint "jobs_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jobs_id"], name: "index_jobs_on_jobs_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +36,10 @@ ActiveRecord::Schema.define(version: 2020_06_26_130959) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jobs", "jobs", column: "jobs_id"
 end
