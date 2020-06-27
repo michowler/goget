@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class TodoApp extends React.Component {
+class Job extends React.Component {
   render() {
-    return <p>TodoApp</p>
+    return <p>Job</p>
   }
 }
 
 document.addEventListener('turbolinks:load', () => {
   const app = document.getElementById('todo-app')
-  app && ReactDOM.render(<TodoApp />, app)
+  app && ReactDOM.render(<Job />, app)
 })

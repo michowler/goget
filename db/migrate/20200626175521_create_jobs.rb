@@ -7,7 +7,7 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.decimal :pickup_long      
       t.decimal :dropoff_lat
       t.decimal :dropoff_long            
-      t.references :jobs, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
       t.timestamps
     end
   end

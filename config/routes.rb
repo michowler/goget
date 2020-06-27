@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 			resources :jobs, only: [:index, :show, :create, :update]
 		end
 	end
+
+	resources :jobs, only: [:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2020_06_27_084745) do
     t.decimal "pickup_long"
     t.decimal "dropoff_lat"
     t.decimal "dropoff_long"
-    t.bigint "jobs_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "book_status", default: false
-    t.index ["jobs_id"], name: "index_jobs_on_jobs_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2020_06_27_084745) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+    t.string "name", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "jobs", "jobs", column: "jobs_id"
+  add_foreign_key "jobs", "users"
 end
