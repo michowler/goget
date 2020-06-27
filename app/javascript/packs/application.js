@@ -7,9 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('bootstrap')
-require('components')
-import 'bootstrap/dist/css/bootstrap'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -19,4 +16,13 @@ import 'bootstrap/dist/css/bootstrap'
 // const imagePath = (name) => images(name, true)
 
 // Support component names relative to this directory:
+require('bootstrap')
+require('components')
+import 'bootstrap/dist/css/bootstrap'
 
+
+
+// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true);
+var ReactRailsUJS = require("react_ujs");
+ReactRailsUJS.useContext(componentRequireContext);
