@@ -1,14 +1,9 @@
 class JobsController < ApplicationController
   before_action :jobs, only: [:update]
-  def create
-    job = Job.new(job_params)
-    if job.save
-      redirect_to '/'
-    else
-      flash[:danger] = job.errors.full_messages 
-      redirect_to '/'
+    def index
+      @user = current_user    
+      @job_list = Job.where(user_id: @user.id)      
     end
-  end
 
   def update
     if authorized?

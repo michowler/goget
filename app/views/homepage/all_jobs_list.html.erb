@@ -18,6 +18,11 @@
       <td><%= "not taken" if j.book_status? == false%></td>          
 
       <td>
+        <% if j.book_status? == false %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+          <% else %>
+            <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+          <% end %>
         
       </td>       
     </tr>

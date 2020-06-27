@@ -4,22 +4,13 @@
     <tr>
       <th>Job Pickup Address</th>
       <th>Job Dropoff Address</th>
-      <th>Status</th>      
-      <th>Action</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <%@job_list.each do |j|%>
     <tr>
       <td><%= j.pickup_address %></td>
-      <td><%= j.dropoff_address %></td>
-      <td><%= "not taken" if j.book_status? == false%></td>          
-
-      <td>
-        
-      </td>       
+      <td><%= j.dropoff_address %></td>         
     </tr>
     <%end%>
   </tbody>
