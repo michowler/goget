@@ -1,18 +1,21 @@
 class JobsController < ApplicationController
-  before_action :jobs, only: [:update]
-    def index
-      @user = current_user    
-      @job_list = Job.where(user_id: @user.id)      
-    end
+  before_action :jobs, only: [:create, :update]
+  def index
+    @user = current_user    
+    @job_list = Job.where(user_id: @user.id)      
+  end
 
-  def update
-    if authorized?
-      @job = Job.find(params[:id])
-      @job.update(job_params)
-      redirect_to '/'
+  def new    
+    @job = Job.new
+  end
+
+  def create    
+    @job = current_user.jobs.new(job_params)
+    if @job.save
+      redirect_to "/jobs"
     else
-      handle_unauthorized
-    end
+      redirect_to "/jobs", notice: "Sorry. product not saved."
+    end 
   end
 
   private
