@@ -1,17 +1,21 @@
-<h1>All Jobs I Created</h1>
+<h1>List of Jobs I Created</h1>
 <%= link_to("Create A Job", controller: "jobs", action: "new", id: current_user.id, class: "nav-link") %>
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Job Pickup Address</th>
       <th>Job Dropoff Address</th>
+      <th>Job Pickup Lat/Long</th>
+      <th>Job Dropoff Lat/Long</th>
     </tr>
   </thead>
   <tbody>
     <%@job_list.each do |j|%>
     <tr>
       <td><%= j.pickup_address %></td>
-      <td><%= j.dropoff_address %></td>         
+      <td><%= j.dropoff_address %></td> 
+      <td><%= j.pickup_lat %>, <%= j.pickup_long %></td> 
+      <td><%= j.dropoff_lat %>, <%= j.dropoff_long %></td> 
     </tr>
     <%end%>
   </tbody>

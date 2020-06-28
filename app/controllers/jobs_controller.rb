@@ -18,6 +18,13 @@ class JobsController < ApplicationController
     end 
   end
 
+  def book    
+    @job = Job.find(params[:id])
+    @job.update_attribute(:book_status, true)
+    flash[:notice] = "Job booked by #{current_user.name}."
+    redirect_to '/'   
+  end
+
   private
   def job_params
     params.require(:job).permit(:user_id, :pickup_address, :dropoff_address, :pickup_lat, :pickup_long, :dropoff_lat, :dropoff_long)
