@@ -8,11 +8,11 @@
 - Claiming a job that haas been created by other user
 
 ## Version:
-Rails 6.0.3.2
-Ruby 2.7.0
+- Rails 6.0.3.2
+- Ruby 2.7.0
 
 ## Database:
-Postgresql
+- Postgresql
 
 ## Instructions:
 1. Install gem and dependencies
