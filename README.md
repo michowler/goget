@@ -1,24 +1,28 @@
-# README
+# GetJob
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Things covered:
+- Signup
+- Login
+- Creating a job
+- Viewing jobs that have been created by the user
+- Claiming a job that haas been created by other user
 
-Things you may want to cover:
+## Version:
+Rails 6.0.3.2
+Ruby 2.7.0
 
-* Ruby version
+## Database:
+Postgres
 
-* System dependencies
+1. Install gem and dependencies
+```bundle install```
 
-* Configuration
+2. Create database, migrate and seed some users and job information for testing purposes
+```rails db:create```
+```rails db:migrate```
+```rails db:seed```
 
-* Database creation
+3. Start server and enjoy!
+```rails s```			
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
