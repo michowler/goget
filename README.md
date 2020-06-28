@@ -12,7 +12,7 @@ Rails 6.0.3.2
 Ruby 2.7.0
 
 ## Database:
-Postgres
+Postgresql
 
 ## Instructions:
 1. Install gem and dependencies
