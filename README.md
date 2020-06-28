@@ -14,6 +14,7 @@ Ruby 2.7.0
 ## Database:
 Postgres
 
+## Instructions:
 1. Install gem and dependencies
 ```bundle install```
 
