@@ -1,5 +1,4 @@
-class JobsController < ApplicationController
-  before_action :jobs, only: [:create, :update]
+class JobsController < ApplicationController  
   def index
     @user = current_user    
     @job_list = Job.where(user_id: @user.id)      
@@ -10,11 +9,12 @@ class JobsController < ApplicationController
   end
 
   def create    
-    @job = current_user.jobs.new(job_params)
+    @user = current_user
+    @job = @user.jobs.new(job_params)
     if @job.save
-      redirect_to "/jobs"
+      redirect_to '/jobs', notice: "Job created."
     else
-      redirect_to "/jobs", notice: "Sorry. product not saved."
+      redirect_to '/jobs', notice: "Sorry, job not saved."
     end 
   end
 
